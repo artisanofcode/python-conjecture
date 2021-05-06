@@ -1,8 +1,17 @@
 [tool.poetry]
 name = "conjecture"
-version = "0.0.1"
+version = "0.0.2"
 description = "A pythonic assertion library"
 authors = ["Daniel Knell <contact@danielknell.co.uk>"]
+readme = "README.md"
+license = "MIT"
+repository = "https://github.com/artisanofcode/python-conjecture"
+
+classifiers = [
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Utilities"
+]
 
 [tool.poetry.dependencies]
 python = "^3.9"

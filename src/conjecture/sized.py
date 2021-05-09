@@ -1,6 +1,6 @@
-"""
-sized conjectures
-"""
+"""sized conjectures."""
+from __future__ import annotations
+
 import collections.abc
 import typing
 
@@ -9,7 +9,7 @@ import conjecture.base
 
 def empty() -> conjecture.base.Conjecture:
     """
-    Empty
+    Empty.
 
     Propose that a sequence contains no items
 
@@ -17,17 +17,16 @@ def empty() -> conjecture.base.Conjecture:
 
     :return: a conjecture object
     """
-
     return conjecture.base.Conjecture(
         lambda x: isinstance(x, collections.abc.Sized) and len(x) == 0
     )
 
 
-def length(
+def length_of(
     value: typing.Union[int, conjecture.base.Conjecture]
 ) -> conjecture.base.Conjecture:
     """
-    Length
+    Length.
 
     Propose that a sequence contains a the provided number of items
 
@@ -36,7 +35,6 @@ def length(
 
     :return: a conjecture object
     """
-
     return conjecture.base.Conjecture(
         lambda x: isinstance(x, collections.abc.Sized) and len(x) == value
     )

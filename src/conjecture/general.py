@@ -1,12 +1,12 @@
-"""
-general conjectures
-"""
+"""general conjectures."""
+from __future__ import annotations
+
 import conjecture.base
 
 
 def none() -> conjecture.base.Conjecture:
     """
-    None
+    None.
 
     Propose that the value is None
 
@@ -14,13 +14,12 @@ def none() -> conjecture.base.Conjecture:
 
     :return: a conjecture object
     """
-
     return conjecture.base.Conjecture(lambda x: x is None)
 
 
 def anything() -> conjecture.base.Conjecture:
     """
-    Anything
+    Anything.
 
     Propose that the value meerly exists
 
@@ -28,13 +27,12 @@ def anything() -> conjecture.base.Conjecture:
 
     :return: a conjecture object
     """
-
     return conjecture.base.Conjecture(lambda x: True)
 
 
 def any_of(*conjectures: conjecture.base.Conjecture) -> conjecture.base.Conjecture:
     """
-    Any of
+    Any of.
 
     Propose any of the conjectures resolve truely
 
@@ -47,7 +45,7 @@ def any_of(*conjectures: conjecture.base.Conjecture) -> conjecture.base.Conjectu
 
 def all_of(*conjectures: conjecture.base.Conjecture) -> conjecture.base.Conjecture:
     """
-    All of
+    All of.
 
     Propose all of the conjectures resolve truely
 
@@ -60,7 +58,7 @@ def all_of(*conjectures: conjecture.base.Conjecture) -> conjecture.base.Conjectu
 
 def has(proof: conjecture.base.Proof) -> conjecture.base.Conjecture:
     """
-    Has
+    Has.
 
     Propose a custom proof function
 

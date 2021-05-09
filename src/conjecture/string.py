@@ -1,14 +1,14 @@
-"""
-string conjectures
-"""
+"""string conjectures."""
+from __future__ import annotations
+
 import typing
 
 import conjecture.base
 
 
-def starts_with(value: typing.Union[str, bytes]) -> conjecture.base.Conjecture:
+def prefixed_with(value: typing.Union[str, bytes]) -> conjecture.base.Conjecture:
     """
-    Starts with
+    Prefixed with.
 
     Propose that a string or byte string starts with provided value
 
@@ -16,7 +16,6 @@ def starts_with(value: typing.Union[str, bytes]) -> conjecture.base.Conjecture:
 
     :return: a conjecture object
     """
-
     if isinstance(value, str):
         prefix_s = value
 
@@ -31,9 +30,9 @@ def starts_with(value: typing.Union[str, bytes]) -> conjecture.base.Conjecture:
     )
 
 
-def ends_with(value: typing.Union[str, bytes]) -> conjecture.base.Conjecture:
+def suffixed_with(value: typing.Union[str, bytes]) -> conjecture.base.Conjecture:
     """
-    Ends with
+    Suffixed with.
 
     Propose that a string or byte string ends with provided value
 
@@ -41,7 +40,6 @@ def ends_with(value: typing.Union[str, bytes]) -> conjecture.base.Conjecture:
 
     :return: a conjecture object
     """
-
     if isinstance(value, str):
         suffix_s = value
 

@@ -1,28 +1,37 @@
-"""
-rich comparison conjectures
-"""
-import operator
+"""rich comparison conjectures."""
+from __future__ import annotations
+
+import abc
+import typing
 
 import conjecture.base
 
+CT = typing.TypeVar("CT", bound="Comparable")
 
-def equal_to(value: object) -> conjecture.base.Conjecture:
+
+class Comparable(typing.Protocol):
+    """Rich comparison protocol."""
+
+    @abc.abstractmethod
+    def __lt__(self: CT, other: CT) -> bool:
+        """Check less than."""
+
+    @abc.abstractmethod
+    def __gt__(self: CT, other: CT) -> bool:
+        """Check greater than."""
+
+    @abc.abstractmethod
+    def __le__(self: CT, other: CT) -> bool:
+        """Check less than or equal to."""
+
+    @abc.abstractmethod
+    def __ge__(self: CT, other: CT) -> bool:
+        """Check greater than or equal to."""
+
+
+def greater_than(value: Comparable) -> conjecture.base.Conjecture:
     """
-    Equal to
-
-    Propose that the value is equal to provided value
-
-    >>> assert value == conjecture.equal_to(5)
-
-    :return: a conjecture object
-    """
-
-    return conjecture.base.Conjecture(lambda x: operator.eq(x, value))
-
-
-def greater_than(value: object) -> conjecture.base.Conjecture:
-    """
-    Greater than
+    Greater than.
 
     Propose that the value is greater than the provided value
 
@@ -30,13 +39,12 @@ def greater_than(value: object) -> conjecture.base.Conjecture:
 
     :return: a conjecture object
     """
+    return conjecture.base.Conjecture(lambda x: typing.cast(Comparable, x) > value)
 
-    return conjecture.base.Conjecture(lambda x: operator.gt(x, value))
 
-
-def greater_than_or_equal_to(value: object) -> conjecture.base.Conjecture:
+def greater_than_or_equal_to(value: Comparable) -> conjecture.base.Conjecture:
     """
-    Greater than or equal to
+    Greater than or equal to.
 
     Propose that the value is greater than or equal to the provided value
 
@@ -44,13 +52,12 @@ def greater_than_or_equal_to(value: object) -> conjecture.base.Conjecture:
 
     :return: a conjecture object
     """
+    return conjecture.base.Conjecture(lambda x: typing.cast(Comparable, x) >= value)
 
-    return conjecture.base.Conjecture(lambda x: operator.le(x, value))
 
-
-def less_than(value: object) -> conjecture.base.Conjecture:
+def less_than(value: Comparable) -> conjecture.base.Conjecture:
     """
-    Less than
+    Less than.
 
     Propose that the value is less than the provided value
 
@@ -58,13 +65,12 @@ def less_than(value: object) -> conjecture.base.Conjecture:
 
     :return: a conjecture object
     """
+    return conjecture.base.Conjecture(lambda x: typing.cast(Comparable, x) < value)
 
-    return conjecture.base.Conjecture(lambda x: operator.lt(x, value))
 
-
-def less_than_or_equal_to(value: object) -> conjecture.base.Conjecture:
+def less_than_or_equal_to(value: Comparable) -> conjecture.base.Conjecture:
     """
-    Less than or equal to
+    Less than or equal to.
 
     Propose that the value is less than or equal to the provided value
 
@@ -72,5 +78,4 @@ def less_than_or_equal_to(value: object) -> conjecture.base.Conjecture:
 
     :return: a conjecture object
     """
-
-    return conjecture.base.Conjecture(lambda x: operator.lt(x, value))
+    return conjecture.base.Conjecture(lambda x: typing.cast(Comparable, x) <= value)

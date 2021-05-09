@@ -22,7 +22,7 @@ RUN if [ "${INSTALL_NODE}" = "true" ]; then su vscode -c "umask 0002 && . /usr/l
 # RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g <your-package-here>" 2>&1
 
 USER vscode
-ENV PATH="~/.poetry/bin:$PATH" \
+ENV PATH="/home/vscode/.poetry/bin:$PATH" \
     POETRY_VIRTUALENVS_IN_PROJECT="true"
 
 RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "conjecture"
-version = "0.0.2"
+version = "0.0.3"
 description = "A pythonic assertion library"
 authors = ["Daniel Knell <contact@danielknell.co.uk>"]
 readme = "README.md"
@@ -17,11 +17,15 @@ classifiers = [
 python = "^3.9"
 
 [tool.poetry.dev-dependencies]
-pytest = "^5.2"
+pytest = "^6.2.4"
 black = "^21.5b0"
 pylint = "^2.8.2"
 mypy = "^0.812"
 isort = "^5.8.0"
+hypothesis = "^6.12.0"
+pydocstyle = "^6.0.0"
+pytest-testdox = "^2.0.1"
+pytest-cov = "^2.11.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
@@ -40,3 +44,9 @@ disable = "C0330, C0326"
 
 [tool.pylint.format]
 max-line-length = "88"
+
+[tool.pylint.SIMILARITIES]
+ignore-imports = "yes"
+
+[tool.coverage.run]
+source=["src/conjecture"]

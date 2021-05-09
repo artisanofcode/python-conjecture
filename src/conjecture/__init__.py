@@ -1,5 +1,5 @@
 """
-conjecture
+conjecture.
 
 a pythonic assertion framework
 """
@@ -7,16 +7,15 @@ from __future__ import annotations
 
 from conjecture.base import AllOfConjecture, AnyOfConjecture, Conjecture
 from conjecture.general import all_of, any_of, anything, has, none
-from conjecture.object import instance_of
+from conjecture.object import equal_to, instance_of
 from conjecture.rich import (
-    equal_to,
     greater_than,
     greater_than_or_equal_to,
     less_than,
     less_than_or_equal_to,
 )
-from conjecture.sized import empty, length
-from conjecture.string import ends_with, starts_with
+from conjecture.sized import empty, length_of
+from conjecture.string import prefixed_with, suffixed_with
 
 __all__ = (
     "Conjecture",
@@ -26,15 +25,15 @@ __all__ = (
     "any_of",
     "anything",
     "empty",
-    "ends_with",
     "equal_to",
     "greater_than_or_equal_to",
     "greater_than",
     "has",
     "instance_of",
-    "length",
+    "length_of",
     "less_than_or_equal_to",
     "less_than",
     "none",
-    "starts_with",
+    "prefixed_with",
+    "suffixed_with",
 )

@@ -32,6 +32,100 @@ Traceback (most recent call last):
 AssertionError
 ```
 
+### Built-in conjectures
+
+#### General
+
+Matching none.
+
+```pycon
+>>> import conjecture
+>>> assert None == conjecture.none()
+```
+
+Matching anything.
+
+```pycon
+>>> import conjecture
+>>> assert None == conjecture.anything()
+>>> assert 123 == conjecture.anything()
+>>> assert "abc" == conjecture.anything()
+```
+
+#### Object
+
+Matching instances of a class.
+
+```pycon
+>>> import conjecture
+>>> assert 123 == conjecture.instance_of(int)
+>>> assert "abc" == conjecture.instance_of((str, bytes))
+```
+
+Matching values.
+
+```pycon
+>>> import conjecture
+>>> assert 123 == conjecture.equal_to(123)
+>>> assert "abc" == conjecture.equal_to("abc")
+```
+
+#### Rich ordering
+
+Matching lesser values.
+
+```pycon
+>>> import conjecture
+>>> assert 5 == conjecture.greater_than(1)
+>>> assert 5 == conjecture.greater_than_or_equal_to(1)
+```
+
+Matching greater values.
+
+```pycon
+>>> import conjecture
+>>> assert 1 == conjecture.less_than(5)
+>>> assert 1 == conjecture.less_than_or_equal_to(5)
+```
+
+#### Size
+
+Matching empty collections.
+
+```pycon
+>>> import conjecture
+>>> assert list() == conjecture.empty()
+>>> assert set() == conjecture.empty()
+>>> assert tuple() == conjecture.empty()
+>>> assert dict() == conjecture.empty()
+```
+
+Matching length of collections.
+
+```pycon
+>>> import conjecture
+>>> assert [1, 2, 3, 4, 5] == conjecture.length_of(5)
+>>> assert [1, 2, 3] == conjecture.length_of(conjecture.less_than(5))
+```
+
+#### String
+
+Matching string prefixes.
+
+```pycon
+>>> import conjecture
+>>> assert "foo bar baz" == conjecture.prefixed_with("foo")
+>>> assert b"foo bar baz" == conjecture.prefixed_with(b"foo")
+```
+
+Matching string suffixes.
+
+```pycon
+>>> import conjecture
+>>> assert "foo bar baz" == conjecture.suffixed_with("baz")
+>>> assert b"foo bar baz" == conjecture.suffixed_with(b"baz")
+```
+
 ### Combined conjectures
 
 Matching all conditions.

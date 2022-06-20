@@ -298,14 +298,14 @@ testing = ["fields", "hunter", "process-tests (==2.0.2)", "six", "pytest-xdist",
 
 [[package]]
 name = "pytest-testdox"
-version = "2.0.1"
+version = "3.0.1"
 description = "A testdox format reporter for pytest"
 category = "dev"
 optional = false
-python-versions = ">=3.5"
+python-versions = ">=3.6"
 
 [package.dependencies]
-pytest = ">=3.7.0"
+pytest = ">=4.6.0"
 
 [[package]]
 name = "snowballstemmer"
@@ -366,7 +366,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "8298060be156d1563dc505c738e9266424ee43fc5e324fa952d9344dd2ed03d4"
+content-hash = "8bcb2c9ea9b40633b1d662d3d87c342ef0b28ac3bc8b13a65fff3290dc2901fd"
 
 [metadata.files]
 astroid = [
@@ -577,8 +577,8 @@ pytest-cov = [
     {file = "pytest_cov-2.11.1-py2.py3-none-any.whl", hash = "sha256:bdb9fdb0b85a7cc825269a4c56b48ccaa5c7e365054b6038772c32ddcdc969da"},
 ]
 pytest-testdox = [
-    {file = "pytest-testdox-2.0.1.tar.gz", hash = "sha256:5cd1d986cb9e33edca4271c57541c57d868781c8090e551374d7e6eeafac465a"},
-    {file = "pytest_testdox-2.0.1-py2.py3-none-any.whl", hash = "sha256:ce9d516c047f718e7707975582e52d6ac922330bdcf87837f8d3fd619057af6f"},
+    {file = "pytest-testdox-3.0.1.tar.gz", hash = "sha256:d9db369821241c1f5762c2585029ebfd5142fe6f35cbe7450660d853b7f6debb"},
+    {file = "pytest_testdox-3.0.1-py2.py3-none-any.whl", hash = "sha256:e69ea6ebd83e410af468c4554ab042c1148edd3d1f29980e18248099bc9e222b"},
 ]
 snowballstemmer = [
     {file = "snowballstemmer-2.1.0-py2.py3-none-any.whl", hash = "sha256:b51b447bea85f9968c13b650126a888aabd4cb4463fca868ec596826325dedc2"},

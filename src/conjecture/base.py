@@ -4,7 +4,7 @@ from __future__ import annotations
 import collections.abc
 import typing
 
-Proof = typing.Callable[[object], bool]
+Proof = collections.abc.Callable[[object], bool]
 
 
 class Conjecture:
@@ -12,12 +12,14 @@ class Conjecture:
     A conjecture describing another object.
 
     Conjectures can be used to describe an object to which they are to be compared
-    against. They assert equality when the proof function resolves truely.
+    against. They assert equality when the proof function resolves truly.
 
     >>> assert 5 == conjecture.greater_than(0) & conjecture.less_than(10)
 
     There are many helpful conjecture factories with their proofs already defined.
     """
+
+    # pylint: disable=eq-without-hash
 
     def __init__(self, proof: typing.Optional[Proof] = None) -> None:
         """
@@ -36,7 +38,9 @@ class Conjecture:
 
         :param value: the value the conjecture is evaluated against
 
-        :return: whether the conjecture resolved truely
+        :return: whether the conjecture resolved truly
+
+        :raises NotImplementedError: when no proof specified
         """
         if not self._proof:
             raise NotImplementedError()
@@ -51,7 +55,7 @@ class Conjecture:
 
         :param other: the value the conjecture is evaluated against
 
-        :return: whether the conjecture resolved truely
+        :return: whether the conjecture resolved truly
         """
         return self.resolve(other)
 
@@ -65,27 +69,31 @@ class Conjecture:
         """
         return Conjecture(lambda value: not self.resolve(value))
 
-    def __or__(self, other: Conjecture) -> Conjecture:
+    def __or__(self, other: object) -> Conjecture:
         """
         Combine using any of.
 
         :param other: another conjecture
 
         :return: a conjecture that either of the combined conjectures will
-                 resolve truely
+                 resolve truly
+
+        :raises ValueError: when other is not a conjecture
         """
         if not isinstance(other, Conjecture):
             raise ValueError(f"Conjecture cannot be combined with {other!r}")
 
         return AnyOfConjecture((self, other))
 
-    def __and__(self, other: Conjecture) -> Conjecture:
+    def __and__(self, other: object) -> Conjecture:
         """
         Combine using all of.
 
         :param other: another conjecture
 
-        :return: a conjecture that both of the combined conjectures will resolve truely
+        :return: a conjecture that both of the combined conjectures will resolve truly
+
+        :raises ValueError: when other is not a conjecture
         """
         if not isinstance(other, Conjecture):
             raise ValueError(f"Conjecture cannot be combined with {other!r}")
@@ -97,8 +105,8 @@ class AnyOfConjecture(Conjecture):
     """
     Any of Conjecture.
 
-    An any of conjecture will resolve truely if any of the passed conjectures
-    resolve truely themselves.
+    An any of conjecture will resolve truly if any of the passed conjectures
+    resolve truly themselves.
 
     """
 
@@ -117,12 +125,12 @@ class AnyOfConjecture(Conjecture):
         """
         Resolve conjecture.
 
-        This conjecture will resolve truely if any of the conjectures it was
+        This conjecture will resolve truly if any of the conjectures it was
         created with resolve true.
 
         :param value: the value the conjecture is evaluated against
 
-        :return: whether the conjecture resolved truely
+        :return: whether the conjecture resolved truly
         """
         for other in self.conjectures:
             if other.resolve(value):
@@ -135,8 +143,8 @@ class AllOfConjecture(Conjecture):
     """
     All of Conjecture.
 
-    An all of conjecture will resolve truely only when all of the passed conjectures
-    resolve truely themselves.
+    An all of conjecture will resolve truly only when all of the passed conjectures
+    resolve truly themselves.
 
     :param conjectures: a tuple of conjectures
     """
@@ -156,12 +164,12 @@ class AllOfConjecture(Conjecture):
         """
         Resolve conjecture.
 
-        This conjecture will resolve truely only if all of the conjectures it was
+        This conjecture will resolve truly only if all of the conjectures it was
         created with resolve true.
 
         :param value: the value the conjecture is evaluated against
 
-        :return: whether the conjecture resolved truely
+        :return: whether the conjecture resolved truly
         """
         for other in self.conjectures:
             if not other.resolve(value):

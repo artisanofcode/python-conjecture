@@ -21,7 +21,7 @@ def anything() -> conjecture.base.Conjecture:
     """
     Anything.
 
-    Propose that the value meerly exists
+    Propose that the value merely exists
 
     >>> assert value == conjecture.anything()
 
@@ -34,7 +34,7 @@ def any_of(*conjectures: conjecture.base.Conjecture) -> conjecture.base.Conjectu
     """
     Any of.
 
-    Propose any of the conjectures resolve truely
+    Propose any of the conjectures resolve truly
 
     >>> assert value == conjecture.any_of(conjecture1, conjecture2)
 
@@ -47,7 +47,7 @@ def all_of(*conjectures: conjecture.base.Conjecture) -> conjecture.base.Conjectu
     """
     All of.
 
-    Propose all of the conjectures resolve truely
+    Propose all of the conjectures resolve truly
 
     >>> assert value == conjecture.any_of(conjecture1, conjecture2)
 

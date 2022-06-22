@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "conjecture"
-version = "0.0.3"
+version = "0.1.0"
 description = "A pythonic assertion library"
 authors = ["Daniel Knell <contact@danielknell.co.uk>"]
 readme = "README.md"

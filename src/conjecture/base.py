@@ -1,5 +1,4 @@
 """base conjecture classes."""
-from __future__ import annotations
 
 import collections.abc
 import typing
@@ -59,7 +58,7 @@ class Conjecture:
         """
         return self.resolve(other)
 
-    def __invert__(self) -> Conjecture:
+    def __invert__(self) -> "Conjecture":
         """
         Invert conjecture.
 
@@ -69,7 +68,7 @@ class Conjecture:
         """
         return Conjecture(lambda value: not self.resolve(value))
 
-    def __or__(self, other: object) -> Conjecture:
+    def __or__(self, other: object) -> "Conjecture":
         """
         Combine using any of.
 
@@ -85,7 +84,7 @@ class Conjecture:
 
         return AnyOfConjecture((self, other))
 
-    def __and__(self, other: object) -> Conjecture:
+    def __and__(self, other: object) -> "Conjecture":
         """
         Combine using all of.
 

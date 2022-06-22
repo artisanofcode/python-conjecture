@@ -1,5 +1,4 @@
 """sized conjectures."""
-from __future__ import annotations
 
 import collections.abc
 import typing

@@ -3,7 +3,6 @@ conjecture.
 
 a pythonic assertion framework
 """
-from __future__ import annotations
 
 from conjecture.base import AllOfConjecture, AnyOfConjecture, Conjecture
 from conjecture.general import all_of, any_of, anything, has, none

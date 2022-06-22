@@ -70,6 +70,15 @@ Matching values.
 >>> assert "abc" == conjecture.equal_to("abc")
 ```
 
+Matching attributes.
+
+```pycon
+>>> import conjecture
+>>> assert 1 == conjecture.has_attribute("__class__")
+>>> assert 1 == conjecture.has_attribute("__class__", of=int)
+>>> assert 1 == conjecture.has_attribute("__class__", of=conjecture.instance_of(type))
+```
+
 #### Rich ordering
 
 Matching lesser values.

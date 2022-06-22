@@ -55,7 +55,7 @@ def has_attribute(value: str, of: object = sentinel) -> conjecture.base.Conjectu
     # pylint: disable=invalid-name
     # of is a perfectly valid name.
 
-    if of == sentinel:
+    if of is sentinel:
         return conjecture.base.Conjecture(lambda x: hasattr(x, value))
 
     return conjecture.base.Conjecture(lambda x: getattr(x, value, sentinel) == of)

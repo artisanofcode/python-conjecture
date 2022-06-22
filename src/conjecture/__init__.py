@@ -6,6 +6,7 @@ a pythonic assertion framework
 
 from conjecture.base import AllOfConjecture, AnyOfConjecture, Conjecture
 from conjecture.general import all_of, any_of, anything, has, none
+from conjecture.mapping import has_key
 from conjecture.object import equal_to, has_attribute, instance_of
 from conjecture.rich import (
     greater_than,
@@ -29,6 +30,7 @@ __all__ = (
     "greater_than",
     "has",
     "has_attribute",
+    "has_key",
     "instance_of",
     "length_of",
     "less_than_or_equal_to",

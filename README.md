@@ -52,6 +52,17 @@ Matching anything.
 >>> assert "abc" == conjecture.anything()
 ```
 
+#### Mapping
+
+Matching keys.
+
+```pycon
+>>> import conjecture
+>>> assert {"a": 1} == conjecture.has_key("a")
+>>> assert {"a": 1} == conjecture.has_key("a", of=1)
+>>> assert {"a": 1} == conjecture.has_key("a", of=conjecture.less_than(5))
+```
+
 #### Object
 
 Matching instances of a class.

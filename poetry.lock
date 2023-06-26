@@ -678,13 +678,13 @@ tests = ["pytest-isort", "pytest-pycodestyle (>=2.3,<3.0)"]
 
 [[package]]
 name = "pytest-pylint"
-version = "0.18.0"
+version = "0.19.0"
 description = "pytest plugin to check source code with pylint"
 optional = false
-python-versions = ">=3.5"
+python-versions = ">=3.7"
 files = [
-    {file = "pytest-pylint-0.18.0.tar.gz", hash = "sha256:790c7a8019fab08e59bd3812db1657a01995a975af8b1c6ce95b9aa39d61da27"},
-    {file = "pytest_pylint-0.18.0-py3-none-any.whl", hash = "sha256:b63aaf8b80ff33c8ceaa7f68323ed04102c7790093ccf6bdb261a4c2dc6fd564"},
+    {file = "pytest-pylint-0.19.0.tar.gz", hash = "sha256:d88e83c1023c641548a9ec3567707ceee7616632a986af133426d4a74d066932"},
+    {file = "pytest_pylint-0.19.0-py3-none-any.whl", hash = "sha256:b51d3f93bed9c192e2b046f16520981bee5abe7bd61b070306e7ee685219fdd3"},
 ]
 
 [package.dependencies]
@@ -922,4 +922,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "a1f6cd654ac1396518864485bf608e20ec16dbdecc7569791bf511b5ec8e6133"
+content-hash = "e7db79cdb32d5c1cdc59e4e299383e7471c4badbf9cfa74b68c7489e8bb6e25e"

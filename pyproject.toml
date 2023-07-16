@@ -82,7 +82,8 @@ testpaths = "tests"
 filterwarnings = [
     "error",
     "ignore::pytest.PytestRemovedIn8Warning",
-    "ignore::DeprecationWarning:pylint.*"
+    "ignore::DeprecationWarning:pylint.*",
+    "ignore:Typeguard cannot check the Comparable protocol because it is a non-runtime protocol.:UserWarning:",
 ]
 
 [tool.pylint.parameter_documentation]

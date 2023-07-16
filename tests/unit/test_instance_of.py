@@ -28,7 +28,7 @@ def test_should_match_value_type(
 )
 def test_should_not_match_different_types(
     value: typing.Union[str, int, float, bool, None],
-    other: typing.Union[type[None], type[bool], type[float], type[int], type[str]],
+    other: type,
 ) -> None:
     """
     instance_of() should not match different type.

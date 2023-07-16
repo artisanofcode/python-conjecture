@@ -14,9 +14,7 @@ import conjecture
     value=st.tuples(
         st.sampled_from([list, set, tuple, frozenset]),
         st.lists(elements=st.integers(), min_size=1),
-    ).map(
-        lambda x: x[0](x[1])  # type: ignore
-    ),
+    ).map(lambda x: x[0](x[1])),
 )
 def test_should_match_itself(
     value: typing.Union[list[int], set[int], tuple[int, ...], frozenset[int]]
@@ -31,9 +29,7 @@ def test_should_match_itself(
     value=st.tuples(
         st.sampled_from([list, set, tuple, frozenset]),
         st.lists(elements=st.integers(), min_size=1),
-    ).map(
-        lambda x: x[0](x[1])  # type: ignore
-    ),
+    ).map(lambda x: x[0](x[1])),
     other=st.integers(),
 )
 def test_should_not_match_other_values(
